@@ -1,0 +1,76 @@
+== render 'part/header'
+
+section.card.wallet data-libraries=[solana_light_core_js, '/js/sol.js'].map{ |file| "#{file}?ts=#{File.mtime('public'+file).to_i.to_s}" }.join(',')
+  .wallet-fragment#wallet-info.d-none
+    .card-body.pb-0
+      .row
+        .col.flex-grow-1
+          table.mb-0.table
+            thead
+              tr.text-muted
+                th Your client ID
+                th.text-right Balance
+            tbody
+              tr.placeholder
+                td.text-monospace
+                td.text-nowrap.text-right
+      .row.mb-1
+        .col.text-right
+          button.btn.btn-lg.btn-primary type="button" data-action="exit_wallet" Exit
+
+  .wallet-fragment#wallet-operations.d-none
+    .card-body.pt-0
+      ul.nav.nav-tabs
+        li.nav-item
+          a.nav-link.active data-toggle="tab" data-click="spend" data-tab="#transfer" Spend
+        li.nav-item
+          a.nav-link.disabled data-toggle="tab" data-click="transfer" data-tab="#transfer" Transfer
+      .tab-content.pt-3
+        .tab-pane.fade.active.show#transfer
+          == render 'sol/_transaction'
+        .tab-pane.fade#contracts
+          | not implemented
+
+  .wallet-fragment#wallet-sign-in.d-none
+    .card-body
+      /h5.card-title Sign in
+
+      ul.nav.nav-tabs
+        li.nav-item
+          a.nav-link.active data-toggle="tab" data-tab="#mnemonic" Sign in
+        /li.nav-item
+          a.nav-link.disabled data-toggle="tab" data-tab="#ledger" Hardware wallet
+        /li.nav-item
+          a.nav-link.disabled data-toggle="tab" data-tab="#file" Key file
+      .tab-content.pt-3
+        .tab-pane.fade.active.show#mnemonic
+          == render 'sol/_mnemonic'
+        .tab-pane.fade#ledger
+          | not implemented
+        .tab-pane.fade#file
+          | not implemented
+
+  .modal.fade#wallet-create data-dismiss="modal"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          h5.modal-title Create a new wallet
+          button.close type="button" data-dismiss="modal" aria-label="close"
+            span aria-hidden="true" &times;
+        .modal-body
+          p The new wallet is created together with a mnemonic phrase. Write the mnemonic phrase down, you will need it to access your wallet.
+
+          big.text-warning#new-mnemonic translate="no"
+
+          .text-right
+            button.btn.btn-link data-action="regenerate_mnemonic" ◯ regenerate
+
+        .modal-footer
+          button.btn.btn-primary.mr-3 type="button" data-toggle="tooltip" data-placement="top" data-action="copy_mnemonic" 
+            | Copy to clipboard
+            .tooltip.bs-tooltip-bottom role="tooltip"
+              .arrow
+              .tooltip-inner Copied!
+          button.btn.btn-secondary type="button" data-dismiss="modal" Close
+
+== render 'part/footer'

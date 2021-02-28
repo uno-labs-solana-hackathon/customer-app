@@ -1,0 +1,21 @@
+.row
+  .col-lg-6
+    .card-body
+      section.wallet.wallet-prepare
+        .form-group
+          label for="pos-challenge" POS challenge
+          textarea.form-control.form-control-sm#pos-challenge rows=6
+
+      .text-right
+        button.btn.btn-primary.mb-2 data-action="sign_challenge" Sign
+
+  .col-lg-6
+    .card-body
+      section.wallet.wallet-prepare
+        .form-group
+          label for="pos-signed-challenge" Signed challenge
+          textarea.form-control.form-control-sm#pos-signed-challenge rows=6
+
+      h6 Past transactions
+
+      #past-transactions

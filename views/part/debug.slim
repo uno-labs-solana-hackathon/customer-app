@@ -1,0 +1,7 @@
+- detailed_infos = [:info].map{ |var| details(var) }.compact
+
+aside.card.debug
+  - if detailed_infos.any?
+    .card-body
+      - detailed_infos.each do |info|
+        == info

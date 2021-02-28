@@ -1,0 +1,17 @@
+- if ENV['RACK_ENV'] == 'development'
+  == render 'part/debug'
+
+footer
+  .card-footer.text-muted
+    .row
+      .col-md
+        small
+          | for 
+          a href='https://solana.com/defi' Solana hackathon 2021
+          br
+          | source 
+          a href='https://github.com/uno-labs-solana-hackathon/customer-app' github.com/uno-labs-solana-hackathon/customer-app
+
+      .col-md.text-right
+        small
+          | render time #{"%.9f" % stop_timer}

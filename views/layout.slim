@@ -1,0 +1,24 @@
+doctype html
+html lang="en"
+  - version = ['css', 'js'].map{ |ext| File.mtime("public/#{ext}/app.#{ext}").to_i }.max
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="google" content="notranslate"
+    meta name="turbolinks-cache-control" content="no-cache"
+    - if page_description
+      meta name="description" content=page_description
+
+    link rel="shortcut icon" href="/favicon.ico?"
+    link rel="icon" type="image/png" href="/favicon.png?"
+    link rel="stylesheet" href="/css/bootstrap-darkly-4.4.1.min.css"
+    link rel="stylesheet" href="/css/app.css?v=#{version}"
+
+    script defer=true src="/js/instantclick-scrollmod.min.js"
+    script src="/js/app.js?v=#{version}"
+
+    title= page_title
+
+  body id="top"
+    == yield
