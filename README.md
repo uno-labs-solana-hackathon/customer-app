@@ -1,4 +1,4 @@
-# Web Wallet Prototype for blockchain-based customer loyalty rewards programs.
+### Web Wallet Prototype for blockchain-based customer loyalty rewards programs.
 
 Live demo available at http://91.146.38.90:33667/
 
