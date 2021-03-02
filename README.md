@@ -7,7 +7,7 @@ Main features:
 * Create/Access Wallet with mnemonic
 * Does not use cookies
 * Displays the balance of tokenized loyalty points
-* Signs transactions with Colophony CryptoCore (wasm-build version)
+* Signs transactions with CryptoCore (wasm-build version) https://github.com/uno-labs-solana-hackathon/core-server
 
 Usage:
 
