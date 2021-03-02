@@ -75,7 +75,7 @@ window.action_open_wallet = function() {
 window.action_sign_challenge = function() {
   if (!window.primary_account) return;
   var challenge = $q1('#pos-challenge').value;
-  var signed_challenge = get_result(window.primary_account.sign_data_base64(String(btoa(String(challenge)))));
+  var signed_challenge = get_result(window.primary_account.sign_data_base64(String(challenge)));
   $q1('#pos-signed-challenge').value = signed_challenge;
 };
 
