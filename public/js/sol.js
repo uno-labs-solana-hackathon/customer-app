@@ -109,7 +109,7 @@ window.show_wallet_info = function(fragment) {
   row.className = 'address';
   row.dataset.address = window.primary_address;
   row.cells[0].textContent = window.primary_address;
-  row.cells[1].textContent = '🕑';
+  row.cells[1].textContent = 'Ⓟ';
 
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://api.gplatform.org/sol/api');
@@ -118,7 +118,7 @@ window.show_wallet_info = function(fragment) {
     if (xhr.status === 200) {
       var response = JSON.parse(xhr.responseText);
       if (response.data) {
-        row.cells[1].innerHTML = response.data.balance.unlocked + ' <span class="text-muted">©</span>';
+        row.cells[1].innerHTML = response.data.balance.unlocked + ' <span class="text-muted">Ⓟ</span>';
       }else{
         console.log(response.result.msg);
       }
