@@ -35,16 +35,8 @@
   .votes table td:nth-of-type(2) a {
     font-size: 75%;
   }
-  #wallet-info table tbody td:first-child {
-    font-size: 0;
-    padding: 0;
-  }
-  #wallet-info table tbody td:first-child + td {
-    padding-left: 0;
-    word-break: break-all;
-  }
-  #wallet-info table tbody tr:last-child td {
-    padding-bottom: 0;
+  #wallet-info table tbody td {
+    display: block;
   }
 }
 
