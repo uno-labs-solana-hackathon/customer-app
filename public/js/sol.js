@@ -103,6 +103,10 @@ window.action_regenerate_mnemonic = function() {
   $q1('#new-mnemonic').textContent = get_result(Module.Wallet.new_mnemonic_phrase());
 };
 
+window.action_refresh_wallet = function() {
+  window.show_wallet_info(document.body.q1('#wallet-info'));
+};
+
 window.show_wallet_info = function(fragment) {
   fragment.qa('tbody tr:not(.placeholder)').forEach(tr => tr.parentNode.removeChild(tr));
   var row = fragment.q1('tr.placeholder').cloneNode(true);
